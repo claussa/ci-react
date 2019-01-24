@@ -1,10 +1,9 @@
-if: tag IS blank
 language: node_js
 node_js:
   - stable
-env:
-  cache:
-    yarn: true
+cache:
+  directories:
+    - node_modules
 install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.10.1
   - export PATH=$HOME/.yarn/bin:$PATH
@@ -24,5 +23,6 @@ deploy:
   api_key:
     secure: 1/l78bXw8E/Lm5zxZ+Z2VQug+g6rSrLp3M4wyGcv/DnUkejAt8UdntVJBGNGuR5Gs3YjXSyhK4UuIw3ztTXmC0ifLL0OG4dFZp18CWMQy1x1JFq+d3r+GNS24bHMAwM4Z4d3HvGC5iu39ypw0Z+c7znq/vnc9ooTE2raK2+j5hVY7xgDI206mGb3CHhJX/wkcFTHCrjkrnxfAp4kCELlB5HvxA99kEqCyCQFdD7CUV7CqvOtrA77JYm0FhCEQH0mGNr+LFuzSMe/Tx/1XBVE+6WUpV2N+F/SuZYPthXcax37TRpR9Vs63VNo/qTOIZdqj10lR4//tYoQBJmY7zhdcFxzjJLh2F24c12Vd3YUWJdA8bhB7gGaANFFdJrk8EWX1xoNJe+/G6VSlP5J3MGADz/QBqODJf0RZO+pDbNdLjlMXihJ1bOP0lDhbn92FLV3yS/uXUJ0AZt2UC3cIO2/kPUt4HqUn5sLoOTH0px7gdI7fCdeRJnnRrRzPzICb0XcpxV6R2kaS2Trlj1hzCPFjdyoUQBV2iRugYsvMIYAHg3DuM+53ku9k+y7CzuJQNwfYDKpIyU720/zNKs1C/3Ao9bQwNrJ0uMTxXsZnvQGNFd7G8BgSjHG/9SxeS1fjj0w5g525ATdN+h92dHYYHF+1Ov2uQhrjFzFKhG6dj1i/7s=
   file: build.tar.gz
+  skip_cleanup: true
   on:
     repo: claussa/ci-react
