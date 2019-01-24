@@ -16,8 +16,9 @@ after_success:
 before_deploy:
   - git config --local user.name "Travis CI"
   - git config --local user.email "travis@travis.fr"
-  - export TRAVIS_TAG="$(date +'%Y%m%d%H%M%S')-$(git rev-parse --short HEAD)"
+  - export TRAVIS_TAG="$(date +'%Y/%m/%d-%H:%M:%S')-$(git rev-parse --short HEAD)"
   - git tag $TRAVIS_TAG
+  - ls -la
 deploy:
   provider: releases
   api_key:
